@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  validateTemplate:
+  build:
     commands:
       - aws cloudformation validate-template --template-body file://application.yaml
     finally:
