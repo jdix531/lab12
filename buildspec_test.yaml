@@ -1,5 +1,7 @@
+version: 0.2
+
 phases:
-  checkStackState:
+  build:
     commands:
     - |-
           function get_stack_status () {
