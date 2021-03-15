@@ -1,5 +1,10 @@
 Resources:
-  ApplicationAsABucket:
-    Type: AWS::S3::Bucket
+  ApplicationAsADynamoTable:
+    Type: AWS::DynamoDB::Table
     Properties:
-      BucketName: great-success-lab-12-1-1-jdix
+      KeySchema:
+        - AttributeName: ID
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: ID
+          AttributeType: S
