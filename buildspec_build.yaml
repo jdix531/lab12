@@ -1,0 +1,6 @@
+phases:
+  validateTemplate:
+    commands:
+      - aws cloudformation validate-template --template-body file://application.yaml
+    finally:
+      - echo "exit code $?"
