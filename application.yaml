@@ -9,3 +9,30 @@ Resources:
         - AttributeName: ID
           AttributeType: S
       BillingMode: PAY_PER_REQUEST
+  AppRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: lab-12-jdix-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: "Allow"
+            Principal: 
+              Service: 
+                - "ec2.amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: 'dynamodb:*'
+                Resource: '*'
+          PolicyName: lab-12-jdix-policy
+  AppProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: "/"
+      Roles:
+        - !Ref AppRole
